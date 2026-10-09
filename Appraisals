@@ -97,7 +97,7 @@ appraise 'activerecord_main' do
   end
 
   platforms :ruby, :mswin, :mingw do
-    gem 'pg', '~> 1.5.6'
-    gem 'sqlite3', '~> 1.7.3'
+    gem 'pg', '~> 1.5'
+    gem 'sqlite3', '~> 2.1'
   end
 end
