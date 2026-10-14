@@ -4,7 +4,7 @@
 
 ## 3.6.1
 
-* [#847](https://github.com/CanCanCommunity/cancancan/pull/847): Fix: rule_spec should honor DB setting ([@tardate][])
+* [#847](https://github.com/CanCanCommunity/cancancan/pull/847): Fix: rule_spec should honor DB setting. ([@tardate][])
 
 ## 3.6.0
 

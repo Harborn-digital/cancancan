@@ -17,7 +17,7 @@ module SQLHelpers
     # ActiveRecord::Base.logger = Logger.new(STDOUT)
     ActiveRecord::Base.logger = nil
     if sqlite?
-      ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: ':memory:')
+      connect_sqlite
     elsif postgres?
       connect_postgres
     elsif ENV['DB'].nil?
@@ -28,6 +28,12 @@ module SQLHelpers
   end
 
   private
+
+  def connect_sqlite
+    # Rails 8.2 reuses a pool with an identical config, which would keep the in-memory database.
+    ActiveRecord::Base.remove_connection
+    ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: ':memory:')
+  end
 
   def connect_postgres
     ActiveRecord::Base.establish_connection(adapter: 'postgresql', host: 'localhost',

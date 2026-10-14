@@ -54,7 +54,7 @@ if CanCan::ModelAdapters::ActiveRecordAdapter.version_lower?('5.0.0')
             end
 
             class Shape < ActiveRecord::Base
-              enum color: %i[red green blue] unless defined_enums.key? 'color'
+              enum :color, %i[red green blue] unless defined_enums.key? 'color'
             end
 
             red = Shape.create!(color: :red)
@@ -92,8 +92,8 @@ if CanCan::ModelAdapters::ActiveRecordAdapter.version_lower?('5.0.0')
             end
 
             class Disc < ActiveRecord::Base
-              enum color: %i[red green blue] unless defined_enums.key? 'color'
-              enum shape: { triangle: 3, rectangle: 4 } unless defined_enums.key? 'shape'
+              enum :color, %i[red green blue] unless defined_enums.key? 'color'
+              enum :shape, { triangle: 3, rectangle: 4 } unless defined_enums.key? 'shape'
             end
 
             red_triangle = Disc.create!(color: Disc.colors[:red], shape: Disc.shapes[:triangle])
